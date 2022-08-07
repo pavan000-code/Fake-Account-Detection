@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+
+	<!-- start: Meta -->
+	<meta charset="utf-8">
+	<title>FPA</title>
+	<meta name="description" content="GotYa Free Bootstrap Theme"/>
+	<meta name="keywords" content="Template, Theme, web, html5, css3, Bootstrap" />
+	<meta name="author" content="Łukasz Holeczek from creativeLabs"/>
+	<!-- end: Meta -->
+
+	<!-- start: Mobile Specific -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<!-- end: Mobile Specific -->
+
+	<!-- start: Facebook Open Graph -->
+	<meta property="og:title" content=""/>
+	<meta property="og:description" content=""/>
+	<meta property="og:type" content=""/>
+	<meta property="og:url" content=""/>
+	<meta property="og:image" content=""/>
+	<!-- end: Facebook Open Graph -->
+
+    <!-- start: CSS -->
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'css/bootstrap-responsive.css' %}" rel="stylesheet">
+	<link href="{% static 'css/style.css' %}" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Droid+Sans:400,700">
+	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Droid+Serif">
+	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Boogaloo">
+	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Economica:700,400italic">
+	<!-- end: CSS -->
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+</head>
+<body>
+
+	<!--start: Header -->
+	<header>
+
+		<!--start: Container -->
+		<div class="container">
+
+			<!--start: Row -->
+			<div class="row">
+
+				<!--start: Logo -->
+				<div class="logo span3">
+
+					<a class="brand" href="#"><h1>Fake Account Detector</h1></a>
+
+				</div>
+				<!--end: Logo -->
+
+				<!--start: Navigation -->
+				<div class="span9">
+
+					<div class="navbar navbar-inverse">
+			    		<div class="navbar-inner">
+			          		<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+			            		<span class="icon-bar"></span>
+			            		<span class="icon-bar"></span>
+			            		<span class="icon-bar"></span>
+			          		</a>
+			          		<div class="nav-collapse collapse">
+			            		<ul class="nav">
+			              			<li><a href="/">Home</a></li>
+			              			<li><a href="model">Detector</a></li>
+									<li class="active"><a href="prediction">Predict</a></li>
+									<li><a href="graphe">Graph</a></li>
+			            		</ul>
+			          		</div>
+			        	</div>
+			      	</div>
+
+				</div>
+			</div>
+		</div>
+	</header>
+	<div class="slider-wrapper">
+
+		<div id="da-slider" class="da-slider">
+			<center>
+				<h3>Prediction Form</h3>
+
+				<br>
+			<div>
+				<form action="" method="post" style="border:orange;width:1000px;height:300px; border-width:5px; border-style:solid;">
+					{% csrf_token %}
+					<br><br>
+					<input type="text" placeholder="FOLLOWED_BY" name="Followed_by" onclick="myFunction()" required>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+					<input type="text" placeholder="FOLLOW" name="Follow" onclick="myFunction1()" required>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+					<input type='text' placeholder="NAME_LENGTH" name="name_length" onclick="myFunction2()" required>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+					<select name="has_number" type="text" required>
+						<option value="-1">HAS NUMBER</option>
+						<option value="1"> Yes </option>
+						<option value="0"> No </option>
+					</select><br><br>
+					<select name="full_name_number" type="text" required>
+						<option value="-1">FULL NAME NUMBER</option>
+						<option value="1"> Yes </option>
+						<option value="0"> No </option>
+					</select>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+					<input type="text" placeholder="FULLNAME_LENGTH" size="2" name="fullname_length" onclick="myFunction3()" required>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+					<select name="private" type="text" required>
+						<option value="-1">PRIVATE</option>
+						<option value="1"> Yes </option>
+						<option value="0"> No </option>
+					</select>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+					<select name="recent" type="text" required>
+						<option value="-1">RECENT</option>
+						<option value="1"> Yes </option>
+						<option value="0"> No </option>
+					</select><br><br>
+					<select name="business_account" type="text" required>
+						<option value="-1">BUSINESS ACCOUNT</option>
+						<option value="1"> Yes </option>
+						<option value="0"> No </option>
+					</select>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+					<select name="external_url" type="text" required>
+						<option value="-1">EXTERNAL_URL</option>
+						<option value="1"> Yes </option>
+						<option value="0"> No </option>
+					</select><br><br>
+					<input class="submit-btn" type="submit" value="SUBMIT">
+				</form>
+
+			</div>
+			</center>
+		</div>
+			{% if messages %}
+                {% for message in messages %}
+                <center><h2 style="color:blue;">{{message}}</h2></center>
+                {%  endfor %}
+            {% endif %}
+
+	</div>
+	<!-- end: Slider -->
+
+	<!--start: Wrapper-->
+
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="{% static 'js/jquery-1.8.2.js' %}"></script>
+<script src="{% static 'js/bootstrap.js' %}"></script>
+<script src="{% static 'js/flexslider.js' %}"></script>
+<script src="{% static 'js/carousel.js' %}"></script>
+<script src="{% static 'js/jquery.cslider.js' %}"></script>
+<script src="{% static 'js/slider.js' %}"></script>
+<script defer="defer" src="{% static 'js/custom.js' %}"></script>
+<!-- end: Java Script -->
+<script>
+function myFunction() {
+  alert("enter a value between 0 to 1");
+}
+function myFunction1() {
+  alert("enter a value between 0 to 1");
+}
+function myFunction2() {
+  alert("enter a value between 5 to 26");
+}
+function myFunction3() {
+  alert("enter a value between 0 to 30");
+}
+</script>
+</body>
+</html>
